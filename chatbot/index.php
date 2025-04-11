@@ -33,16 +33,16 @@ function callChatbotAPI($apiKey, $messages)
 
 $apiKey = "apikey";
 
-$ft = isset($_POST['ques']) ? $_POST['ques'] : '';
-$ftt = isset($_POST['fname']) ? $_POST['fname'] : '';
+$ques = isset($_POST['ques']) ? $_POST['ques'] : '';
+$fname = isset($_POST['fname']) ? $_POST['fname'] : '';
 
 $messages = [
-    ["role" => "user", "content" => "سلاام!"],
-    ["role" => "assistant", "content" => "سلام چه کمکی از دستم بر میاد?"],
+    ["role" => "user", "content" => "!سلاام!"],
+    ["role" => "assistant", "content" => "سلام چه مشکلی پیش آمده است؟ کمکی از دستم بر میاد?"],
 ];
 
-if (!empty($ft) && !empty($ftt)) {
-    $messages[] = ["role" => "user", "content" => $ft];
+if (!empty($ques) && !empty($fname)) {
+    $messages[] = ["role" => "user", "content" => $ques];
     $response = callChatbotAPI($apiKey, $messages);
 
     $responseData = json_decode($response, true);
@@ -64,7 +64,7 @@ if (!empty($name) && !empty($question)) {
 }
 
 echo "<div style='margin-top: 20px; text-align: center;'>
-        <a href='URL' 
+        <a href='REDIRECT_URL' 
            style='text-decoration: none; background: #ff4e50; color: white; padding: 12px 20px; border-radius: 8px; font-size: 16px; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 78, 80, 0.5);'>
            ⬅ Back
         </a>
