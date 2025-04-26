@@ -1,5 +1,5 @@
 <?php
-require('config.php'); //database
+include('config.php'); //database
 
 function callChatbotAPI($apiKey, $messages)
 {
